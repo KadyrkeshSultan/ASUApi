@@ -1,12 +1,20 @@
 ﻿using ASU.DTO.Enums;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace ASU.DTO.Entities
+namespace ASU.Web.Models
 {
-    public class MeasureDeviceType : BaseEntity
+    public class MeasureDeviceTypeView
     {
+        public int Id { get; set; }
+
+        [Required]
+        [MinLength(1)]
+        public string Name { get; set; }
+
         /// <summary>
         /// Допуск по разряду
         /// </summary>
@@ -22,11 +30,15 @@ namespace ASU.DTO.Entities
         /// </summary>
         public string AllowedByRandom { get; set; }
 
+        [Required]
+        [MinLength(1)]
         /// <summary>
         /// Производитель
         /// </summary>
         public string MDProducer { get; set; }
 
+        [Required]
+        [MinLength(1)]
         /// <summary>
         /// Диапозон измерений
         /// </summary>
@@ -38,7 +50,7 @@ namespace ASU.DTO.Entities
         public string QualifiedName { get; set; }
 
         //public string Type => $"{this.QualifiedName} - {base.Mnemo}";
-        public MeasurementType MeasurementType { get; set; }
+        public MeasurementTypeView MeasurementType { get; set; }
         public int MeasurementTypeId { get; set; }
 
         /// <summary>
@@ -46,14 +58,11 @@ namespace ASU.DTO.Entities
         /// </summary>
         public VerificationGapEnum VerificationGap { get; set; }
 
+        [Required]
+        [MinLength(1)]
         /// <summary>
         /// Методика поверки
         /// </summary>
         public string VerificationProc { get; set; }
-
-        public MeasureDeviceType()
-        {
-
-        }
     }
 }

@@ -12,6 +12,7 @@ namespace ASU.DAL.Interfaces
         IVerificatorRepository Verificators { get; }
         ITestEquipmentRepository TestEquipments { get; }
         IMeasurementTypeRepository MeasurementTypes { get; }
+        IMeasureDeviceTypeRepository MeasureDeviceTypes { get; }
 
         void Save();
         Task SaveAsync();
