@@ -13,10 +13,21 @@ namespace ASU.DAL.Repositories
         private AppDbContext db;
         private IDeclarantRepository declarants;
         private IVerificationDeviceRepository verificationDevices;
+        private IVerificatorRepository verificators;
 
         public EFUnitOfWork(DbContextOptions<AppDbContext> options)
         {
             db = new AppDbContext(options);
+        }
+
+        public IVerificatorRepository Verificators
+        {
+            get
+            {
+                if (verificators == null)
+                    verificators = new VerificatorRepository(db);
+                return verificators;
+            }
         }
 
         public IDeclarantRepository Declarants
@@ -38,16 +49,6 @@ namespace ASU.DAL.Repositories
                 return verificationDevices;
             }
         }
-
-        //public IChoiceRepository Choices
-        //{
-        //    get
-        //    {
-        //        if (choiceRepository == null)
-        //            choiceRepository = new ChoiceRepository(db);
-        //        return choiceRepository;
-        //    }
-        //}
 
         public void Save() => db.SaveChanges();
 

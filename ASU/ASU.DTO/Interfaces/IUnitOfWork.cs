@@ -9,6 +9,8 @@ namespace ASU.DAL.Interfaces
     {
         IDeclarantRepository Declarants { get; }
         IVerificationDeviceRepository VerificationDevices { get; }
+        IVerificatorRepository Verificators { get; }
+
         void Save();
         Task SaveAsync();
     }

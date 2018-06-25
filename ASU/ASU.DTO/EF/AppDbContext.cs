@@ -12,6 +12,7 @@ namespace ASU.DTO.EF
     {
         public DbSet<Declarant> Declarants { get; set; }
         public DbSet<VerificationDevice> VerificationDevices { get; set; }
+        public DbSet<Verificator> Verificators { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options)
             :base(options)
