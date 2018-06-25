@@ -10,6 +10,7 @@ namespace ASU.DAL.Interfaces
         IDeclarantRepository Declarants { get; }
         IVerificationDeviceRepository VerificationDevices { get; }
         IVerificatorRepository Verificators { get; }
+        ITestEquipmentRepository TestEquipments { get; }
 
         void Save();
         Task SaveAsync();

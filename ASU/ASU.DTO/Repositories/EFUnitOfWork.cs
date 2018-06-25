@@ -14,10 +14,21 @@ namespace ASU.DAL.Repositories
         private IDeclarantRepository declarants;
         private IVerificationDeviceRepository verificationDevices;
         private IVerificatorRepository verificators;
+        private ITestEquipmentRepository testEquipments;
 
         public EFUnitOfWork(DbContextOptions<AppDbContext> options)
         {
             db = new AppDbContext(options);
+        }
+
+        public ITestEquipmentRepository TestEquipments
+        {
+            get
+            {
+                if (testEquipments == null)
+                    testEquipments = new TestEquipmentRepository(db);
+                return testEquipments;
+            }
         }
 
         public IVerificatorRepository Verificators
