@@ -15,10 +15,21 @@ namespace ASU.DAL.Repositories
         private IVerificationDeviceRepository verificationDevices;
         private IVerificatorRepository verificators;
         private ITestEquipmentRepository testEquipments;
+        private IMeasurementTypeRepository measurementTypes;
 
         public EFUnitOfWork(DbContextOptions<AppDbContext> options)
         {
             db = new AppDbContext(options);
+        }
+
+        public IMeasurementTypeRepository MeasurementTypes
+        {
+            get
+            {
+                if (measurementTypes == null)
+                    measurementTypes = new MeasurementTypeRepository(db);
+                return measurementTypes;
+            }
         }
 
         public ITestEquipmentRepository TestEquipments
