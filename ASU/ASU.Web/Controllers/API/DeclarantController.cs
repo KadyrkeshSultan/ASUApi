@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ASU.DAL.Interfaces;
 using ASU.DTO;
 using ASU.DTO.Actors;
 using ASU.DTO.EF;
@@ -16,17 +17,17 @@ namespace ASU.Web.Controllers
     [ApiController]
     public class DeclarantsController : ControllerBase
     {
-        AppDbContext db;
+       IUnitOfWork db;
 
-        public DeclarantsController(AppDbContext dbContext)
+        public DeclarantsController(IUnitOfWork unit)
         {
-            db = dbContext;
+            db = unit;
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var dec = await db.Declarants.FirstOrDefaultAsync(d => d.Id == id);
+            var dec = await db.Declarants.GetAsync(id);
             if (dec == null)
                 return NotFound(id);
 
@@ -54,7 +55,7 @@ namespace ASU.Web.Controllers
                 Phone = model.Phone
             };
             await db.Declarants.AddAsync(dec);
-            await db.SaveChangesAsync();
+            await db.SaveAsync();
             return CreatedAtAction("Get", new { id = dec.Id }, dec);
         }
 
@@ -63,7 +64,7 @@ namespace ASU.Web.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var dec = await db.Declarants.FirstOrDefaultAsync(d => d.Id == id);
+            var dec = await db.Declarants.GetAsync(id);
             if (dec == null)
                 return NotFound(id);
 
@@ -73,19 +74,19 @@ namespace ASU.Web.Controllers
             dec.Address = model.Address;
 
             db.Declarants.Update(dec);
-            await db.SaveChangesAsync();
+            await db.SaveAsync();
             return Ok(dec);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var dec = await db.Declarants.FirstOrDefaultAsync(d => d.Id == id);
+            var dec = await db.Declarants.GetAsync(id);
             if (dec == null)
                 return NotFound(id);
 
             db.Declarants.Remove(dec);
-            await db.SaveChangesAsync();
+            await db.SaveAsync();
             return NoContent();
         }
     }

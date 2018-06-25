@@ -10,6 +10,8 @@ using ASU.DTO.Entities;
 using ASU.DTO.EF;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using ASU.DAL.Interfaces;
+using ASU.DAL.Repositories;
 
 namespace ASU.Web
 {
@@ -73,6 +75,7 @@ namespace ASU.Web
                         };
                     });
 
+            services.AddScoped<IUnitOfWork, EFUnitOfWork>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
