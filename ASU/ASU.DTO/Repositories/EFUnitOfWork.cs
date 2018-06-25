@@ -12,6 +12,7 @@ namespace ASU.DAL.Repositories
     {
         private AppDbContext db;
         private IDeclarantRepository declarants;
+        private IVerificationDeviceRepository verificationDevices;
 
         public EFUnitOfWork(DbContextOptions<AppDbContext> options)
         {
@@ -27,6 +28,17 @@ namespace ASU.DAL.Repositories
                 return declarants;
             }
         }
+
+        public IVerificationDeviceRepository VerificationDevices
+        {
+            get
+            {
+                if (verificationDevices == null)
+                    verificationDevices = new VerificationDeviceRepository(db);
+                return verificationDevices;
+            }
+        }
+
         //public IChoiceRepository Choices
         //{
         //    get

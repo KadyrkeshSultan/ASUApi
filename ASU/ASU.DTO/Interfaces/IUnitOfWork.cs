@@ -8,6 +8,7 @@ namespace ASU.DAL.Interfaces
     public interface IUnitOfWork : IDisposable
     {
         IDeclarantRepository Declarants { get; }
+        IVerificationDeviceRepository VerificationDevices { get; }
         void Save();
         Task SaveAsync();
     }
