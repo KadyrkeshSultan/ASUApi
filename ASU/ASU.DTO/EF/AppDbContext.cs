@@ -16,6 +16,7 @@ namespace ASU.DTO.EF
         public DbSet<TestEquipment> TestEquipments { get; set; }
         public DbSet<MeasurementType> MeasurementTypes { get; set; }
         public DbSet<MeasureDeviceType> MeasureDeviceTypes { get; set; }
+        public DbSet<MeasureDevice> MeasureDevices { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options)
             :base(options)

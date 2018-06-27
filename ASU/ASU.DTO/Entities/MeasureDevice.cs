@@ -42,14 +42,14 @@ namespace ASU.DTO.Entities
 
         //public string Type => $"{this.QualifiedName} - {base.Mnemo}";
         public MeasurementType MeasurementType { get; set; }
-        public string MeasurementTypeId { get; set; }
+        public int MeasurementTypeId { get; set; }
 
         /// <summary>
         /// Межпроверочный интервал
         /// </summary>
         public VerificationGapEnum VerificationGap { get; set; }
         public MeasureDeviceType MeasureDeviceType { get; set; }
-        public string MeasureDeviceTypeId { get; set; }
+        public int? MeasureDeviceTypeId { get; set; }
         /// <summary>
         /// Методика поверки
         /// </summary>
