@@ -3,6 +3,9 @@ using System.Linq;
 
 namespace ASU.DTO.Actors
 {
+    /// <summary>
+    /// Поверщик
+    /// </summary>
     public class Verificator : BaseActor
     {
         public string Address { get; set; }

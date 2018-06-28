@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ASU.DTO.Entities
 {
+    /// <summary>
+    /// Тип средства измерения
+    /// </summary>
     public class MeasureDeviceType : BaseEntity
     {
         /// <summary>

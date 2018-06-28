@@ -4,6 +4,9 @@ using System.Text;
 
 namespace ASU.DTO.Actors
 {
+    /// <summary>
+    /// Заявитель
+    /// </summary>
     public class Declarant : BaseActor
     {
         public string Address { get; set; }
