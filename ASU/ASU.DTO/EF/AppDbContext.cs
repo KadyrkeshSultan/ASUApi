@@ -1,4 +1,5 @@
 ﻿using ASU.DTO.Actors;
+using ASU.DTO.Documents;
 using ASU.DTO.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,7 @@ namespace ASU.DTO.EF
         public DbSet<MeasurementType> MeasurementTypes { get; set; }
         public DbSet<MeasureDeviceType> MeasureDeviceTypes { get; set; }
         public DbSet<MeasureDevice> MeasureDevices { get; set; }
+        public DbSet<StampType> StampTypes { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options)
             :base(options)

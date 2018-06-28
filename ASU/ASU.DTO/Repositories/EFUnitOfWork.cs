@@ -18,10 +18,21 @@ namespace ASU.DAL.Repositories
         private IMeasurementTypeRepository measurementTypes;
         private IMeasureDeviceTypeRepository measureDeviceTypes;
         private IMeasureDeviceRepository measureDevices;
+        private IStampTypeRepository stampTypes;
 
         public EFUnitOfWork(DbContextOptions<AppDbContext> options)
         {
             db = new AppDbContext(options);
+        }
+
+        public IStampTypeRepository StampTypes
+        {
+            get
+            {
+                if (stampTypes == null)
+                    stampTypes = new StampTypeRepository(db);
+                return stampTypes;
+            }
         }
 
         public IMeasureDeviceRepository MeasureDevices

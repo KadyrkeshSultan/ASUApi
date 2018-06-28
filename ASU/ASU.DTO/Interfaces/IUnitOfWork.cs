@@ -14,6 +14,7 @@ namespace ASU.DAL.Interfaces
         IMeasurementTypeRepository MeasurementTypes { get; }
         IMeasureDeviceTypeRepository MeasureDeviceTypes { get; }
         IMeasureDeviceRepository MeasureDevices { get; }
+        IStampTypeRepository StampTypes { get; }
 
         void Save();
         Task SaveAsync();
