@@ -53,6 +53,7 @@ namespace ASU.Web.Models
         public MeasurementTypeView MeasurementType { get; set; }
         public int MeasurementTypeId { get; set; }
 
+        [EnumDataType(typeof(VerificationGapEnum))]
         /// <summary>
         /// Межпроверочный интервал
         /// </summary>

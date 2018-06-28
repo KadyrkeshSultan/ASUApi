@@ -6,7 +6,7 @@ namespace ASU.DTO.Enums
 {
     public enum VerificationGapEnum
     {
-        Indefinitely,
+        Indefinitely = 0,
         Quarter = 3,
         HalfYear = 6,
         Year = 12,
